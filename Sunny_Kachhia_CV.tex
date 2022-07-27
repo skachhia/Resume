@@ -1,403 +1,364 @@
-\documentclass[11pt,letterpaper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+%%%%%%%%%%%%%%%%%
+% This is an example CV created using altacv.cls (v1.3, 10 May 2020) written by
+% LianTze Lim (liantze@gmail.com), based on the
+% Cv created by BusinessInsider at http://www.businessinsider.my/a-sample-resume-for-marissa-mayer-2016-7/?r=US&IR=T
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
 
-% modern themes
-\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{black}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
 
-% character encoding
-\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
 
-% adjust the page margins
-\usepackage[margin=1cm,scale=0.75]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-\AtBeginDocument{
-    \hypersetup{colorlinks,urlcolor=blue}
-}
-\renewcommand*{\namefont}{\fontsize{18}{20}\mdseries\upshape}
-\usepackage{import}
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+%% AltaCV uses the fontawesome5 and academicon fonts
+%% and packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
 
-% personal data
-\name{\textbf{Sunny}}{\textbf{Kachhia}}
-\address{503 Ansal Forte Apartment, Behind Central Silkboard, Hosur Road, Bangalore-560068}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{+91-9880706075}                   % optional, remove / comment the line if not wanted
-%\phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
-%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{sunny.kachhia@gmail.com}                               % optional, remove / comment the line if not wanted
-%\homepage{{http://www.wikibooks.org}{Wikibooks home}}                         % optional, remove / comment the line if not wanted
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
 
-\social[skype]{sunny.kachhia}
-\social[linkedin]{sunnykachhia}
-\social[github]{sunnykachhia}
-%\social[bitbucket]{sunnykachhia}
-\social[twitter]{sunnykachhia}
-\extrainfo{DOB: February 12, 1992}                 % optional, remove / comment the line if not wanted
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
 
 
-%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Lato}
+\else
+  % If using pdflatex:
+  \usepackage[default]{lato}
+\fi
 
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
-%\makeatletter
-%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-%\makeatother
-%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+% Change the colours if you want to
+% \definecolor{VividPurple}{HTML}{3E0097}
+\definecolor{VividPurple}{HTML}{0857a6}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{tagline}{black}
+% \colorlet{tagline}{VividPurple}
+\colorlet{heading}{VividPurple}
+\colorlet{headingrule}{VividPurple}
+% \colorlet{subheading}{PastelRed}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
 
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
-%----------------------------------------------------------------------------------
-%            content
-%----------------------------------------------------------------------------------
+% Change some fonts, if necessary
+% \renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+% \renewcommand{\personalinfofont}{\footnotesize}
+% \renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+% \renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
 \begin{document}
-%-----       resume       ---------------------------------------------------------
-\pagestyle{empty}
-\makecvtitle
+\name{Sunny Kachhia}
+\tagline{Software Engineer - FullStack (Java, React)}
+% Cropped to square from https://en.wikipedia.org/wiki/Marissa_Mayer#/media/File:Marissa_Mayer_May_2014_(cropped).jpg, CC-BY 2.0
+%% You can add multiple photos on the left or right
+% \photoR{2.5cm}{0}
+% \photoL{2cm}{Yacht_High,Suitcase_High}
+\personalinfo{%
+  % Not all of these are required!
+  % You can add your own with \printinfo{symbol}{detail}
+  \phone{\href{tel:+9974291750}{+91-9974291750}}
+ \hspace{-0.9em} 
+ \mailaddress{\href{mailto:sunny.kachhia@gmail.com}{sunny.kachhia@gmail.com}}
+%  \hspace{-0.4em} 
+ \location{Vadodara, Gujarat, India} \\
+  \twitter{@sunnykachhia} \hspace{0.3em} 
+  \linkedin{sunnykachhia}
+  \github{skachhia} % I'm just making this up though.
+%   \orcid{orcid.org/0000-0000-0000-0000} % Obviously making this up too. If you want to use this field (and also other academicons symbols), add "academicons" option to \documentclass{altacv}
+  %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+  % \orcid{0000-0000-0000-0000}
+  %% You can add your own arbtrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+}
 
-%\small{Graduate student of Computer Science seeking engineering and development roles in fast paced teams. Proven track record of delivering creative and end-to-end engineering solutions.}
-\small{Post graduate in Computer Science and Engineering, Full Stack Developer, passionate about programming, with
-strong interpersonal skills for working in a team and delivering end-to-end engineering product.}
+\makecvheader
 
-\section{Technical skills}
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+\AtBeginEnvironment{itemize}{\small}
 
-\vspace{2pt}
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
 
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+
+\cvsection{Experience}
+
+\cvevent{Associate Technical Lead \hfill \includegraphics[scale=0.3]{webonise-logo.png} \includegraphics[scale=0.25]{drf-logo.png} \includegraphics[scale=0.5]{sungardas-logo.png}}  {\href{https://www.webonise.com/}{Webonise Lab - \textit{Offsite consultant at Daily Racing Form and Sungard Availability Services}} }
+{March 2018 -- Present}{Pune, Maharashtra}
 \begin{itemize}
-
-\item \textbf{Programming Languages:} \emph{Proficient in}: Java (J2EE)(30000 LOC), Python(15000 LOC) \\ \emph{Extensively used}: C(3000 LOC), C\#.NET(1000 LOC), Shell Script, VB Script, ASP.NET, TeX
-
-\vspace{2pt}
-
-\item \textbf{Web Technologies:} PHP(2000 LOC), JavaScript(3000 LOC), Node.js, HTML, CSS, Bootstrap-3.x
-
-\vspace{2pt}
-
-\item \textbf{Database Management Systems:} MySQL-5.5, MySQL-5.6, SQLite-3.x
-
-\vspace{2pt}
-
-\item \textbf{Frameworks:} Hibernate-4.3.0, JBoss-EAP 6.4.0, JBoss-EAP 7.0, Apache, Kivy, Django
-
-\vspace{2pt}
-
-\item \textbf{Libraries:} OpenCV, androidCV, numpy, tkinter, Google's geolocation API, gson, ACRA, Kivy
-
-\vspace{2pt}
-
-\item \textbf{Operating Systems \& IDEs:} Linux [Eclipse, Android Studio, Pycharm, vim, nano, gedit], Windows [Adobe Dreamweaver, Visual Studio, notepad++, Dev-C++, TexMaker], Mac
-
-\vspace{2pt}
-
-\item \textbf{Tools:} Git, bitbucket, JIRA, Google Apps, Trello, WinSCP, PuTTY, FileZilla
-
-\vspace{2pt}
-
-\item \textbf{Other:} JSON parsing, XML parsing, Web Services, RESTEasy, Maven, Android BLE, Android image compression
-
-\vspace{2pt}
-
-\item \textbf{General Professional Skills:} Good presentation skills, Leadership skills, Can manage a team in Agile manner, Strategic Planner, Works well in a team.
-
-\vspace{2pt}
-
-\item \textbf{Other:} Good Problem solving skills, communication skills, Can write well organized and structured reports.
-
+\item \textbf{Designing} and \textbf{Architecting} features across projects and overseeing their execution.
+\item Develop and support software on \textbf{microservice} based architecture in \textbf{Java}.
+\item Optimised a client web application by converting it to \textbf{microfrontends} of re usable components and reducing the overall code footprint by \textbf{3x}.
+\item Introduced \textbf{GraphQL} framework in the application to cater to multiple client requirements across their product line and leveraged its capability to serve data in a fast and flexible way. This resulted in reduction of feature development effort and helped us deliver \textbf{1.3x} more than the planned work capacity in almost the same time.
+\item Evangelize \textbf{test driven development} in the team. Thus, bringing the overall code coverage from \textbf{12\%} to \textbf{60\%}.
+\item Established practice of writing \textbf{SEO} friendly code within the team.
+\item Introduced and led the development of \textbf{mobile web application} which helped in increasing the client's customer base to \textbf{1.5x} and in turn generate \textbf{1.8x} more revenue year on year.
+\item Worked to optimise the number of network calls made to the database server \textbf{reducing the cost} of API calls to the server \textbf{by 42\%}.
+\item Helped one of the client to setup their production infrastructure for \textbf{PostgreSQL} with \textbf{high availability} and tuned its performance based on the requirement and resources allocated.
+\item Train and mentor junior engineers through sessions on best \textbf{coding practices} and \textbf{code reviews}.
+% \item Worked with QA team to write automation scripts in \textbf{JMeter} for client application.
 \end{itemize}
 
+\divider
 
 
-\section{Professional Experience}
-
-\vspace{2pt}
-
-\subsection{\textbf{Aindra Systems Pvt. Ltd.} Bangalore, India \small{May 2014-current}}
-\textit{Senior Product Engineer}
-
-\begin{small}
-
-\vspace{5pt}
-
+\cvevent{Senior Product Engineer \hfill \includegraphics[scale=0.02]{aindra-logo-blue.png}}{\href{https://www.aindra.in/}{Aindra}}{June 2015 – Feb 2018}{Bengaluru, Karnataka}
 \begin{itemize}
+\item \textbf{Architect solutions} and \textbf{suggest optimisations} for multiple product lines, in one of the \textbf{top 10 Artificial Intelligence startups} in India at that time, and follow through with the implementation and deployment.
+\item Introduced \textbf{JIRA} to track and monitor projects while adhering to \textbf{Agile practices}.
+\item Manage, mentor and encourage the engineering team to deliver optimised and robust solutions on time.
 
-\item \textbf{SMART ATTENDANCE - Automated attendance system with face recognition and tracking}
 \vspace{2pt}
-\begin{itemize}
-\item \textbf{Server side Tools \& Technologies:} \textbf{JAVA, Hibernate(ORM, POJO, DAO, Session, Transaction), REST Web Services, Maven, JBoss, MySQL, XML, JSON, Log4j logging framework.}
-\vspace{2pt}
-\item \textbf{Client side Tools \& Technologies:} \textbf{Android(WiFi, Geo Location, Camera, network time, Shared preferences), Material design, gradle, SQLite, JSON, Google Analytics, ACRA (Application Crash Reports for Android), Android logging.}
-\vspace{2pt}
-\item \textbf{Web portal Tools \& Technologies:} \textbf{PHP, HTML, JavaScript, AJAX, CSS, XML, Bootstrap.}
 
-\vspace{3pt}
+\item[\textbf{1}] \textbf{Product: Automated detection of cancer cells through staining and imaging}
 
-\item \textbf{Product description \& My Role:}
-\begin{itemize}
-\item Smart Attendance is a product that provides a solution for tracking attendance and proof of attendance by using face recognition algorithms.
-\vspace{2pt}
-\item Led the design and development of an end-to-end cloud based system for attendance, automated through computer vision. Its a patent pending technology.
-\vspace{2pt}
-\item Designed a scalable architecture for the product that is now used in several places in India. 
-\vspace{2pt}
-\item \textbf{Development of Restful APIs} and \textbf{API based SaaS} to provide face recognition and face verification as a service to customers. It has multi layer authentication and authorization policies. Implemented in Eclipse IDE using \textbf{Java, Hibernate, MySQL} tech stack and deployed on \textbf{JBOSS app server}.
-\vspace{2pt}
-\item Single-handedly Designed and developed \textbf{android based mobile application} for users to capture and push attendance data. It has features of face tracking, face detection, face-cropping, geo-tagging, image compression, timestamp information and works offline as well. Also added automated bug reporting mechanism in the app.
-\vspace{2pt}
-\item Designed and helped in developing \textbf{SaaS based web-interface} for users to interact with the attendance system and generate reports; it uses their feedback to continuously improve accuracy of the model.
-\vspace{2pt}
-\item Wrote \textbf{JSON and XML parsers} for front end and back end in order to read and understand the interfacing data.
-\vspace{2pt}
-\item Integrated google analytics with the web-interface and mobile application.
-\vspace{2pt}
-\item Implemented firewall security on production servers using iptable rules.
-\vspace{2pt}
-\item I was also part of developing team when initial phase of productisation happened in \textbf{python} language using \textbf{Django MVC} and then later took over for redesigning the product.
-\end{itemize}
-\end{itemize}
-
-\vspace{5pt}
-
-\pagebreak
-
-\item \textbf{Productization of Object recognition and Character recognition system}
-\vspace{2pt}
-\begin{itemize}
-\item \textbf{Server side Tools \& Technologies:} \textbf{JAVA, Hibernate(ORM, POJO, DAO, Session, Transaction), REST Web Services, Maven, JBoss, MySQL, XML, Log4j logging framework.}
-\vspace{2pt}
-\vspace{2pt}
-\item \textbf{Web portal Tools \& Technologies:} \textbf{PHP, HTML, JavaScript, AJAX, CSS, XML, Bootstrap.}
-
-\vspace{3pt}
-
-\item \textbf{Product description \& My Role:}
 \begin{itemize}
 \item Designed and setup the entire architecture required for the product including servers, database models and API design.
-\vspace{2pt}
-\vspace{2pt}
-\item Designed future prood database schema to accomodate object type and categorization of the detected as well as undetected objects.
-\vspace{2pt}
-\item \textbf{Development of Restful APIs} and \textbf{API based SaaS} to provide object recognition and character recognition as a service to customers. Implemented in Eclipse IDE using \textbf{Java, Hibernate, MySQL} tech stack and deployed on \textbf{JBOSS app server}.
-\vspace{2pt}
-\item Designed and helped in developing \textbf{SaaS based web-interface} for users to identify and cross validate the detected objects on the desired location.
-\vspace{2pt}
-\item Currently it is being used in market for FIRE extinguisher detection and NO SMOKING sign board detection by insurance companies.
-\end{itemize}
-\end{itemize}
-
-\vspace{5pt}
-
-\item \textbf{Productization of automated detection of cancer cells through staining and imaging}
-\vspace{2pt}
-\begin{itemize}
-\vspace{2pt}
-\item This project has already received grants from Biotechnology Industry Research Assistance Council (BIRAC), Biotechnology Ignition Grant Scheme (BIG), Villgro Innovations Foundation and Indo-US Science and Technology Forum (IUSSTF).
-
-\vspace{3pt}
-
-\item \textbf{Product description \& My Role:}
-\begin{itemize}
 \item \textbf{Server Component:}
+
 \begin{itemize}
-\item \textbf{Tools \& Technologies:} \textbf{JAVA, Hibernate(ORM, POJO, DAO, Session, Transaction), REST Web Services, Maven, JBoss, MySQL, XML, JSON, Log4j logging framework.}
-\item Designed and setup the entire architecture required for the product including servers, database models and API design.
-\vspace{2pt}
-\item \textbf{Development of Restful APIs} and \textbf{API based SaaS} to provide object recognition and character recognition as a service to customers. Implemented in Eclipse IDE using \textbf{Java, Hibernate, MySQL} tech stack and deployed on \textbf{JBOSS app server}.
+\item Tools \& Technologies: \textbf{JAVA}, Hibernate, REST Web Services, Maven, JBoss, \textbf{MySQL}, XML, JSON, Log4j logging framework.
 \end{itemize}
 
-\vspace{3pt}
-
-\item \textbf{Web Component: Web based cancer cell annotation tool on the concept of telepathology}
+\item \textbf{Web Component:} Web based cancer cell annotation tool on the concept of telepathology.
 \begin{itemize}
-\item \textbf{Tools \& Technologies:} \textbf{OpenSeaDragon, Electron, HTML, JavaScript, Node.js, JQuery, AJAX, CSS, Bootstrap.}
-\item Developed an intuitive UI for pathologists to analyze and mark cancerous cell on a Whole Slide Image captured from glass slides containing cervical sample.
-\vspace{2pt}
-\item It has features like reading a Whole Slide Image in pyramidal structure, zooming in, zooming out, draw polygon, mark polygon, update polygon, delete polygon. Filter based polygon viewing on the Whole Slide Image
+\item Tools \& Technologies: OpenSeaDragon, Electron, HTML, \textbf{JavaScript, Node.js, AJAX}, JQuery, CSS, Bootstrap.
+\item Overlooked the development of an intuitive UI for pathologists to analyze and mark cancerous cells on a Whole Slide Image captured from glass slides containing cervical samples.
 \end{itemize}
 
-\vspace{3pt}
-
-\item \textbf{Client component: Auto Stainer Hardware and Image Acquisition Device}
+\item \textbf{Client component:} Auto Stainer Hardware and Image Acquisition Device
 \begin{itemize}
-\item \textbf{Tools \& Technologies:} \textbf{Android(WiFi, BLE, Geo Location, network time, Shared preferences), Material design, gradle, SQLite, JSON, Google Analytics, ACRA (Application Crash Reports for Android), Android logging.}
-\vspace{2pt}
 \item Developed an embedded system to automate the functions of a stepper motor in the auto stainer which is responsible for performing various staining processes involved in cervical cancer using blood samples. It includes rotary motion as well as linear motion of the motor and controlling its speed and velocity.
-\vspace{2pt}
 \item Built an intuitive touch based user interface in \textbf{python} using \textbf{Kivy framework} for the Auto stainer device.
-\vspace{2pt}
-\item Successfully showcased the prototype at International Knowledge Millennium Conference held at Hyderabad International Conventional Center, Hyderabad, India on 24th October, 2016, organized by IKP knowledge park.
-\vspace{2pt}
+\item Successfully showcased the prototype at the International Knowledge Millennium Conference held at Hyderabad International Conventional Center, Hyderabad, India on 24th October, 2016, organized by IKP knowledge park.
 \item Successfully built one more concept of Auto Stainer which is \textbf{IoT based} and can be controlled from a mobile device using \textbf{Bluetooth Low Energy}.
-\vspace{2pt}
 \item Implemented a subscription model for the Auto Stainer and continuous tracking of the on field deployed devices.
-
-\end{itemize}
-\end{itemize}
-\end{itemize}
-
-\vspace{2pt}
-
-\end{itemize}
-\end{small}
-
-\vspace{5pt}
-
-\subsection{\textbf{Shreeji Infosoft}, Vadodara, Gujarat, India \small{July 2012 - May 2013}}
-\textit{Project Intern}
-\begin {small}
-
-\vspace{5pt}
-
-\begin{itemize}
-
-\item \textbf{Reduced the overhead of offline booking system}
-\begin{itemize}
-\item \textbf{ Build environment:} \textbf{Visual Studio 2010 (C\#.NET, MS Visio, MS Access, SQL server 2008)}
-\vspace{2pt}
-\item Designed and developed a System for Travel agents to manage online booking in different Branches.
-\vspace{2pt}
-\item Built a web-interface for users to plan their own travel and then do the necessary bookings. Separate login for travel agents to modify price chart, vehicle information, tour packages and availability of the tour plan.
-\vspace{2pt}
-\item created a future proof database, where travel agencies can add type of travel their organization serves; could be roadways, seaways or air transport.
-\vspace{2pt}
-\item We were able to develop a Web based solution for the tours and travels agencies which caters to the automation of all the activities carried in the agencies/organizations.
 \end{itemize}
 
 \end{itemize}
-\end{small}
 
-\vspace{5pt}
-
-\pagebreak
-
-\section{Academia}
-
-\vspace{5pt}
-
+\item[\textbf{2}] \textbf{Product: Object recognition and Character recognition system}
 \begin{itemize}
-
-\item{\cventry{July 2013-May 2015}{M.Tech. in Computer Science and Engineering}{Nirma University}{Ahmedabad}{\textit{GPA:7.30/10.0}}{Courses: Advanced Algorithms, Artificial Intelligence, Advanced Compiler Design, Cloud Computing, Modern Databases, \\ Computer Architecture and Parallel Programming, Real Time Systems, Web Search and Mining, Distributed Parallel Systems}}
-
-\vspace{2pt}
-
-\item{\cventry{2009--2013}{B.E. in Computer Engineering}{Gujarat Technological University}{Ahmedabad}{\textit{GPA: 7.20/10.0}}{Courses: Advanced data structures and algorithms, Theory of computation, DBMS, Networks, OS, Compilers, \\ .NET technologies, JAVA technologies, OOPS, Mathematics, Computer Graphics}}  % arguments 3 to 6 can be left empty
-
+\item Architectured the system for the product, including servers, database models and API design.
+\item Designed future proof database schema to accommodate object type and categorization of the detected as well as undetected objects.
+\item Developed \textbf{SaaS based web-interface} for users to identify and cross validate the detected objects on the desired location.
+\item Integrated with Industrial Insurance provider companies for Fire extinguisher detection and No Smoking sign board detection.
+\item \textbf{Server side Tools \& Technologies:} REST Web Services, \textbf{JAVA, Hibernate}, Maven, JBoss, \textbf{MySQL}, XML, Log4j logging framework.
+\item \textbf{Web portal Tools \& Technologies:} HTML, CSS, XML, Bootstrap, \textbf{PHP, JavaScript, AJAX}.
 \end{itemize}
-\vspace{2pt}
-
-\subsection{Tests}
-\begin{itemize}
-\item {\textbf{GATE 2013 qualified with 97.27 percentile}}
-\end{itemize}
-
-\vspace{5pt}
-
-
-\subsection{Notable Projects}
-
-\vspace{5pt}
-
-\begin{itemize}
-
-\item{\textbf{Deployed and integrated Face recognition based attendance system for the following clients:}
-\vspace{1pt}
-
-\small{
-\begin{itemize}
-\item \textbf{Dusters Total Solutions Services Pvt Ltd (DTSS), Positive Shift, Labournet, AR Rail Vikas}
-\end{itemize}}}
-
-\vspace{5pt}
-
-\item{\textbf{Deployed and integrated Face verification based login system for the following clients:}
-\vspace{1pt}
-
-\small{
-\begin{itemize}
-\item \textbf{CAP Workforce Development Institute (CAP WDI)}
-\end{itemize}}}
-
-\vspace{5pt}
-
-\item{\textbf{Applications of Mobile Visual Identification (Master's project):}
-\\ \textit{'Automated attendance system with face recognition and tracking'}
-\\ Guide: Vipul Chudasama, Assistant Professor, Computer Engg. dept., Nirma University
-\vspace{1pt}
-
-\small{
-\begin{itemize}
-\item I was part of a team developing a Face Recognition based Attendance system that can be used in Enterprise, Health care and Educational institutions to keep record of daily attendances of people.
-\\ \textbf{ Build environment:} \textbf{Django MVC 1.7 (Python, HTML, JavaScript, CSS), Java(Client), C++ \& PHP.}
-\end{itemize}}}
-
-\vspace{5pt}
-
-\item{\textbf{Tours \& Travels Management system (Bachelor's Project):}
-\\ \textit{'Reduced the overhead of offline booking system'}
-\\ Guide: Reeta Mishra, Assistant Professor, Computer Engg. dept., K.J.I.T
-\vspace{1pt}
-\small{
-\begin{itemize}
-\item Led a team of 3 to conduct a comprehensive survey and study of existing travel booking systems and problems faced by clients.
-\vspace{1pt}
-\item Built a web based solution and made travel booking convenient for users and also reduced lot of management activities and paper work done by the travel agencies.
-\end{itemize}}}
-
-\vspace{5pt}
-
-\item{\textbf{Hybrid Filtering Methods Applied in Web-Based Movie Recommendation System (Master's mini project):}
-\\ \textit{'Comparative study on various filtering techniques and built a hybrid filtering technique based on benchmarking results'}}
-
-\vspace{5pt}
-
-\item{\textbf{Estimation of Communication rates in MPI (Master's mini project):}
-\\ \textit{'Developed a Cluster environment for estimating communication rates in message passing interface'}}
-
-\vspace{5pt}
-
-\item{\textbf{Online Student Management System (Bachelor's mini project):}
-\\ \textit{'A web portal for students and teachers to make information sharing faster and easily accessible'}
-
-\vspace{1pt}
-
-\small{
-\begin{itemize}
-\item The objective was to ease the communication between students and faculties and improve sharing of notes, articles, publications, textbooks via web. Faculties can also upload video lectures, notices, results etc.
-\\ \textbf{Build environment:} Adobe Dreamweaver(html, JavaScript, CSS, PHP)
-\end{itemize}}}
 
 \end{itemize}
 
 
-\section{Relevant interests, activities and achievements}
-\begin{itemize}
+\divider
 
-\begin{small}
-\item Won several coding events organized by Hacker Earth and also won hackathon that resulted in job offer.
-\vspace{1pt}
-\item Two times Winner of Sudoku competition at college level (2012 \& 2013).
-\vspace{1pt}
-\item Won 1st prize twice in group dance competition at college level (2011 \& 2013).
-\vspace{1pt}
-\item Runner-up in MTech Premier League at Nirma University. Have been an integral part of my college cricket team for straight 4 years in B.E.
-\vspace{1pt}
-\item Organized blood donation camp and technical seminars during undergraduate studies.
-\vspace{1pt}
-\item Worked as Group Co-ordinator of Cultural as well as Technical Festivals in college.
-\vspace{1pt}
-\item Member of Indian Society for Technical Education, student chapter. I hosted the inaugural event of ISTE in my UG college.
-\vspace{1pt}
-\item Other interest include calligraphy, which I am self-taught, solving puzzles \& riddles, Technology enthusiast, cricket lover, music lover, fitness conscious, violinist, gamer and movie freak.
-\end{small}
+\cvevent{Product Engineering Intern \hfill \includegraphics[scale=0.02]{aindra-logo-blue.png}}{\href{https://www.aindra.in/}{Aindra}}{June 2014 – May 2015}{Bengaluru, Karnataka}
+\begin{itemize}
+\item \textbf{Project: Smart Attendance} - Automated attendance system with face recognition and tracking.
+\item Led the design and development of an end-to-end cloud based system for attendance, automated through computer vision.
+\item Architectured a scalable solution for a product that is now being used in several places in India.
+\item \textbf{Server side Tools \& Technologies:} REST Web Services, \textbf{JAVA}, Hibernate(ORM, POJO, DAO, Session, Transaction), Maven, JBoss, \textbf{MySQL}, XML, JSON, Log4j logging framework.
+\item \textbf{Client side Tools \& Technologies:} Material design, gradle, \textbf{Android} (WiFi, Geo Location, Camera, network time, Shared preferences), \textbf{SQLite}, JSON, \textbf{Google Analytics}, ACRA (Application Crash Reports for Android), Android logging.
+\item \textbf{Web portal Tools \& Technologies:} HTML, CSS, XML, Bootstrap, \textbf{PHP, JavaScript, AJAX}.
+\item Deployed and integrated Face recognition based attendance system for the following clients: \textbf{Dusters Total Solutions Services Pvt Ltd (DTSS), Positive Shift, Labournet, AR Rail Vikas}
+
+\end{itemize}
+
+% \cvsection{A Day of My Life}
+
+% % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% % \wheelchart{outer radius}{inner radius}{
+% % comma-separated list of value/text width/color/detail}
+% % Some ad-hoc tweaking to adjust the labels so that they don't overlap
+% \hspace*{-1em}  %% quick hack to move the wheelchart a bit left
+% \wheelchart{1.5cm}{0.5cm}{%
+%   10/13em/accent!30/Sleeping \& dreaming about work,
+%   25/9em/accent!60/Public resolving issues with Yahoo!\ investors,
+%   5/11em/accent!10/\footnotesize\\[1ex]New York \& San Francisco Ballet Jawbone board member,
+%   20/11em/accent!40/Spending time with family,
+%   5/8em/accent!20/\footnotesize Business development for Yahoo!\ after the Verizon acquisition,
+%   30/9em/accent/Showing Yahoo!\ \mbox{employees} that their work has meaning,
+%   5/8em/accent!20/Baking cupcakes
+% }
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the currentc column
+% \newpage
+
+% \cvsection{Publications}
+
+% \nocite{*}
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+% \divider
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}}, type=article]
+
+% \divider
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{ABOUT ME}
+% \begin{quote}
+% ``If you don't have any shadows, you're not standing in the light.''
+% \end{quote}
+A Full-Stack engineer with an overall experience of \textbf{7+ years} including \textbf{5 years} as a \textbf{Java Software Engineer} and 3 years as a \textbf{Web Engineer} with a proven track record of successfully delivering more than 5 projects.\\~\\
+
+% A curious soul always passionate about learning new technologies, thriving to deliver end to end engineering products with a proven track record of successfully leading and deploying more than 5 projects.\\~\\
+
+% At \textbf{Aindra} I was responsible for building projects from scratch, leveraging in house \textbf{AI platforms} for \textbf{face, object detection} and \textbf{cervical cancer cell detection}.\\~\\
+
+A curious soul always intrigued by tech, my interest was piqued while working at \textbf{Aindra} where I was responsible for building projects from scratch, leveraging in house \textbf{AI platforms} for \textbf{face, text, object detection} and \textbf{cervical cancer cell detection}.\\~\\
+
+After moving to \textbf{Webonise Lab}, I realised my flair for front end technologies as well, hence committed as a Full-Stack engineer ( \textbf{Java} and \textbf{React}) and now further looking to enhance my \textbf{leadership} skills. In the process, I have already started participating in the \textbf{staffing} activities and trained more than 20 new recruits on \textbf{React, GraphQL and Spring frameworks}.
+% \cvsection{Most Proud of}
+
+% \cvachievement{\faTrophy}{Courage I had}{to take a sinking ship and try to make it float}
+
+% \divider
+
+% \cvachievement{\faHeartbeat}{Persistence \& Loyalty}{I showed despite the hard moments and my willingness to stay with Yahoo after the acquisition}
+
+% \divider
+
+% \cvachievement{\faChartLine}{Google's Growth}{from a hundred thousand searches per day to over a billion}
+
+% \divider
+
+% \cvachievement{\faFemale}{Inspiring women in tech}{Youngest CEO on Fortune's list of 50 most powerful women}
+
+\cvsection{Strengths}
+
+\cvtag{Problem Solving}
+\cvtag{Agile Development}\\
+\cvtag{Client Communication}
+\cvtag{Teamwork}\\
+\cvtag{People Management}
+\cvtag{Stakeholder Management}
+\divider\smallskip
+
+\cvtag{Hard-working}
+\cvtag{Persuasive}\\
+\cvtag{Motivator \& Leader}
+
+\cvsection{Technical Skills}
+
+\cvskill{Java}{4}
+\cvskill{React}{5}
+\cvskill{Microservices}{4}
+\cvskill{MySQL}{4}
+\cvskill{GraphQL}{3}
+\cvskill{PostgreSQL}{3}
+\cvskill{Linux (Ubuntu)}{4}
+
+\cvsection{Tools}
+
+\cvskill{Github/Bitbucket}{5}
+% \divider
+\cvskill{IntelliJ}{4}
+\cvskill{VSCode}{4}
+\cvskill{JIRA/Confluence}{4}
+\cvskill{DBeaver}{3}
+\cvskill{AWS}{2}
+\cvskill{Slack}{5}
+
+\vspace{2in}
+
+\cvsection{Education}
+
+\cvevent{M.Tech. in Computer Science \& Engineering}{Nirma University, Ahmedabad}{June 2013 – June 2015}{}
+
+\divider
+
+\cvevent{B.E. in Computer Engineering}{Gujarat Technological University, Ahmedabad}{June 2009 – June 2013}{}
+
+% \cvsection{A Day of My Life}
+
+% % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% % \wheelchart{outer radius}{inner radius}{
+% % comma-separated list of value/text width/color/detail}
+% % Some ad-hoc tweaking to adjust the labels so that they don't overlap
+% \vspace{1em}
+% \hspace*{-5em}  %% quick hack to move the wheelchart a bit left
+% \wheelchart{1.5cm}{0.5cm}{%
+%   15/8em/accent!10/Technology Solutioning,
+%   10/9em/accent!25/Client Collaboration,
+%   15/8em/accent!10/Team Collaboration,
+%   8/8em/accent!30/Planning and monitoring,
+%   15/13em/accent!10/Family time,
+%   25/9em/accent/Sleeping,
+%   5/11em/accent!50/Recording Music,
+%   7/11em/accent!40/Exploring new tech
+% }
+
+\cvsection{Achievements}
+\begin{itemize}
+    \item Received \textbf{8+ stars} out of 10 in employee performance assessment rating for 3 consecutive years from 2019 to 2021 at \textbf{Webonise Lab}
+    \item Awarded as employee of the year 2016 at \textbf{Aindra}
+\end{itemize}
+
+\cvsection{Interests}
+\begin{itemize}
+    \item cricket enthusiast
+    \item Hodophile
+    \item solving puzzles and riddles, especially \textbf{Sudoku} and \textbf{Kakuro}
+    \item music and movies
 \end{itemize}
 
 
-\section{References}
+\newpage
 
-\begin{itemize}
+% \cvsection{Referees}
 
-\item{Available on request}
+% % \cvref{name}{email}{mailing address}
+% \cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
+% {Address Line 1\\Address line 2}
 
-\end{itemize}
+% \divider
+
+% \cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
+% {Address Line 1\\Address line 2}
+
+\end{paracol}
 
 \end{document}
+
